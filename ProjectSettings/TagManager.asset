@@ -3,21 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - FredIdle
-  - VentTrigger
-  - PlateIcon
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Interact
+  - 
   - Water
   - UI
-  - Player
-  - Enemy
-  - PostProcessing
-  - Not in Reflection
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
