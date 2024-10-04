@@ -14,7 +14,7 @@ public class Door : MonoBehaviour
     public bool isOpen;
     public bool isOn;
 
-
+    [SerializeField] private PowerSystem Power;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +35,7 @@ public class Door : MonoBehaviour
                 if (Vector3.Distance(transform.position, OpenPos) <= 0.5f)
                 {
                     transform.position = OpenPos;
+
                 }
                 else
                 {
@@ -65,10 +66,12 @@ public class Door : MonoBehaviour
         if (isOn)
         {
             Light.SetActive(true);
+            Power.SystemsOn++;
         }
         else
         {
             Light.SetActive(false);
+            Power.SystemsOn--;
         }
     }
 }

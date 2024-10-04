@@ -19,6 +19,8 @@ public class CameraSystem : MonoBehaviour
     [SerializeField] private float CooldownTime = 0.5f;
 
     [SerializeField] private GameObject CameraSystemUI;
+
+    [SerializeField] private PowerSystem Power;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,13 @@ public class CameraSystem : MonoBehaviour
         if(Input.GetKeyDown(OpenCamera))
         {
             CameraOpened = !CameraOpened;
+            if(CameraOpened)
+            {
+                Power.SystemsOn++;
+            } else
+            {
+                Power.SystemsOn--;
+            }
             ShowCamera();
         }
 
