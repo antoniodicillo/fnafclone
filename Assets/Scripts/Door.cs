@@ -28,7 +28,39 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isOpen)
+        if(Power.Power > 0f)
+        {
+            if (isOpen)
+            {
+                if (transform.position != OpenPos)
+                {
+                    if (Vector3.Distance(transform.position, OpenPos) <= 0.5f)
+                    {
+                        transform.position = OpenPos;
+
+                    }
+                    else
+                    {
+                        transform.position = Vector3.Lerp(transform.position, OpenPos, DoorSpeed * Time.deltaTime);
+                    }
+                }
+            }
+            else
+            {
+
+                if (transform.position != ClosedPos)
+                {
+                    if (Vector3.Distance(transform.position, ClosedPos) <= 0.5f)
+                    {
+                        transform.position = ClosedPos;
+                    }
+                    else
+                    {
+                        transform.position = Vector3.Lerp(transform.position, ClosedPos, DoorSpeed * Time.deltaTime);
+                    }
+                }
+            }
+        } else
         {
             if (transform.position != OpenPos)
             {
@@ -42,22 +74,10 @@ public class Door : MonoBehaviour
                     transform.position = Vector3.Lerp(transform.position, OpenPos, DoorSpeed * Time.deltaTime);
                 }
             }
+            isOn = true;
+            ChangeLight();
         }
-        else
-        {
-
-            if (transform.position != ClosedPos)
-            {
-                if (Vector3.Distance(transform.position, ClosedPos) <= 0.5f)
-                {
-                    transform.position = ClosedPos;
-                }
-                else
-                {
-                    transform.position = Vector3.Lerp(transform.position, ClosedPos, DoorSpeed * Time.deltaTime);
-                }
-            }
-        }
+      
        
     }
     public void ChangeLight()
