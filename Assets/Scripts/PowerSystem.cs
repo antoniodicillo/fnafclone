@@ -49,7 +49,7 @@ public class PowerSystem : MonoBehaviour
             }
             else if (SystemsOn == 2)
             {
-                Power -= 0.25f * Time.deltaTime;
+                Power -= 0.15f * Time.deltaTime;
                 PowerCub2.SetActive(true);
                 PowerCub3.SetActive(false);
                 PowerCub4.SetActive(false);
@@ -57,7 +57,7 @@ public class PowerSystem : MonoBehaviour
             }
             else if (SystemsOn == 3)
             {
-                Power -= 0.55f * Time.deltaTime;
+                Power -= 0.35f * Time.deltaTime;
                 PowerCub2.SetActive(true);
                 PowerCub3.SetActive(true);
                 PowerCub4.SetActive(false);
@@ -65,7 +65,7 @@ public class PowerSystem : MonoBehaviour
             }
             else if (SystemsOn == 4)
             {
-                Power -= 0.85f * Time.deltaTime;
+                Power -= 0.45f * Time.deltaTime;
                 PowerCub2.SetActive(true);
                 PowerCub3.SetActive(true);
                 PowerCub4.SetActive(true);
@@ -73,7 +73,7 @@ public class PowerSystem : MonoBehaviour
             }
             else if (SystemsOn == 5)
             {
-                Power -= 1.15f * Time.deltaTime;
+                Power -= 0.6f * Time.deltaTime;
                 PowerCub2.SetActive(true);
                 PowerCub3.SetActive(true);
                 PowerCub4.SetActive(true);
@@ -81,7 +81,7 @@ public class PowerSystem : MonoBehaviour
             }
             else
             {
-                Power -= 2f * Time.deltaTime;
+                Power -= 0.8f * Time.deltaTime;
                 PowerCub2.SetActive(true);
                 PowerCub3.SetActive(true);
                 PowerCub4.SetActive(true);

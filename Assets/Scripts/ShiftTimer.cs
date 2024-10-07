@@ -17,6 +17,8 @@ public class ShiftTimer : MonoBehaviour
 
     [SerializeField] private bool Won;
 
+    [SerializeField] private AnimatronicSystem[] Animatronics;
+
     void Start()
     {
         DigitalClock = "";
@@ -30,6 +32,14 @@ public class ShiftTimer : MonoBehaviour
 
             var hours = Mathf.FloorToInt(Timer / 60);
             var minutes = Mathf.FloorToInt(Timer - hours * 60);
+
+            if(minutes == 0)
+            {
+                for(int i=0; i<Animatronics.Length;i++)
+                {
+                    Animatronics[i].ChangeAgressionByHour(hours);
+                }
+            }
 
             if (hours >= ShiftEndTime)
             {
@@ -47,4 +57,5 @@ public class ShiftTimer : MonoBehaviour
         }
 
     }
+    
 }
