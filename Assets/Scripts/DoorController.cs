@@ -10,7 +10,11 @@ public class DoorController : MonoBehaviour
     private void OnMouseDown()
     {
         Door.isOpen = !Door.isOpen;
-        Door.GetComponent<AudioSource>().Play();
+
+        Door.Audio.clip = Door.DoorSound;
+        Door.Audio.Play();
+
+        
         if(Door.isOpen)
         {
             Power.SystemsOn--;

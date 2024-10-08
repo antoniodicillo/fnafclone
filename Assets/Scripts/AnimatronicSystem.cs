@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class AnimatronicSystem : MonoBehaviour
 {
@@ -25,6 +27,10 @@ public class AnimatronicSystem : MonoBehaviour
     [SerializeField] private int MaxAgressionAdd;
 
     [SerializeField] private int HoursChanged;
+
+    [SerializeField] private PlayableDirector Director;
+
+    [SerializeField] private Door Door;
 
     // Start is called before the first frame update
     void Start()
@@ -52,13 +58,11 @@ public class AnimatronicSystem : MonoBehaviour
                         }
                         else
                         {
+                            Door.Audio.clip = Door.Knock;
+                            Door.Audio.Play();
                             CurrentTarget = 1;
                             transform.position = Targets[CurrentTarget].transform.position;
                         }
-                    }
-                    else if (Targets[CurrentTarget].GetComponent<DestinationPoint>().IsOffice)
-                    {
-                        Debug.Log("you died lol");
                     }
                     else
                     {
@@ -81,7 +85,7 @@ public class AnimatronicSystem : MonoBehaviour
 
         if (Targets[CurrentTarget].GetComponent<DestinationPoint>().IsOffice)
         {
-            Debug.Log("you died lol");
+            Director.Play();
         }
        
 
@@ -99,5 +103,9 @@ public class AnimatronicSystem : MonoBehaviour
             HoursChanged++;
         }
         
+    }
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

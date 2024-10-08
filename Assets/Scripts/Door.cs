@@ -16,6 +16,10 @@ public class Door : MonoBehaviour
 
     [SerializeField] private PowerSystem Power;
 
+    public AudioSource Audio;
+    public AudioClip DoorSound;
+    public AudioClip Knock;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,11 +90,13 @@ public class Door : MonoBehaviour
         if (isOn)
         {
             Light.SetActive(true);
+            Light.GetComponent<AudioSource>().Play();
             Power.SystemsOn++;
         }
         else
         {
             Light.SetActive(false);
+            Light.GetComponent<AudioSource>().Stop();
             Power.SystemsOn--;
         }
     }
