@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShiftTimer : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class ShiftTimer : MonoBehaviour
     [SerializeField] private bool Won;
 
     [SerializeField] private AnimatronicSystem[] Animatronics;
+
+    [SerializeField] private string NextSceneToCall;
 
     void Start()
     {
@@ -45,6 +48,7 @@ public class ShiftTimer : MonoBehaviour
             {
                 WinScreen.SetActive(true);
                 Won = true;
+                Invoke("NextScene", 1f);
             }
             if (hours == 0)
             {
@@ -58,4 +62,8 @@ public class ShiftTimer : MonoBehaviour
 
     }
     
+    private void NextScene()
+    {
+        SceneManager.LoadScene(NextSceneToCall);
+    }
 }
