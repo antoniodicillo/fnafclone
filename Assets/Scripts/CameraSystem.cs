@@ -20,6 +20,8 @@ public class CameraSystem : MonoBehaviour
 
     [SerializeField] private GameObject CameraSystemUI;
 
+    [SerializeField] private GameObject KitchenUI;
+
     [SerializeField] private PowerSystem Power;
     // Start is called before the first frame update
     void Start()
@@ -98,12 +100,20 @@ public class CameraSystem : MonoBehaviour
             Cameras[CurrentCam].SetActive(true);
             CameraSystemUI.SetActive(true);
             MainCamera.SetActive(false);
+            if(CurrentCam == 2)
+            {
+                KitchenUI.SetActive(true);
+            } else
+            {
+                KitchenUI.SetActive(false);
+            }
         }
         else
         {
             Cameras[CurrentCam].SetActive(false);
             CameraSystemUI.SetActive(false);
             MainCamera.SetActive(true);
+            KitchenUI.SetActive(false);
         }
     }
     public void GoToCamera(int Progression)

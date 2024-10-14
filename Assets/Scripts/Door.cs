@@ -5,8 +5,6 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
 
-    [SerializeField] private GameObject Light;
-
     [SerializeField] private Vector3 OpenPos;
     [SerializeField] private Vector3 ClosedPos;
 
@@ -26,7 +24,6 @@ public class Door : MonoBehaviour
         transform.position = OpenPos;
         isOpen = true;
 
-        ChangeLight();
     }
 
     // Update is called once per frame
@@ -79,25 +76,8 @@ public class Door : MonoBehaviour
                 }
             }
             isOn = true;
-            ChangeLight();
         }
       
        
-    }
-    public void ChangeLight()
-    {
-        isOn = !isOn;
-        if (isOn)
-        {
-            Light.SetActive(true);
-            Light.GetComponent<AudioSource>().Play();
-            Power.SystemsOn++;
-        }
-        else
-        {
-            Light.SetActive(false);
-            Light.GetComponent<AudioSource>().Stop();
-            Power.SystemsOn--;
-        }
     }
 }
