@@ -11,17 +11,13 @@ public class NightDisplayScript : MonoBehaviour
 
     [SerializeField] private float TimeToDie;
 
+    [SerializeField] private GameObject nightGui;
 
     // Start is called before the first frame update
     void Start()
     {
+        nightGui.SetActive(true);
         NightText.text = NightName;
-        Destroy(gameObject, TimeToDie);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(nightGui, TimeToDie);
     }
 }
