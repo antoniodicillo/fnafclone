@@ -135,6 +135,6 @@ public class AnimatronicSystem : MonoBehaviour
     }
     public void RestartScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Menu");
     }
 }

@@ -8,4 +8,8 @@ public class CarregarCena : MonoBehaviour
     public void CarregarCeninha(string scene) {
         SceneManager.LoadScene(scene);
     }
+    public void FecharJogo()
+    {
+        Application.Quit();
+    }
 }
