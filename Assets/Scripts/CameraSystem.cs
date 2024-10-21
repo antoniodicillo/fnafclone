@@ -23,7 +23,10 @@ public class CameraSystem : MonoBehaviour
     [SerializeField] private GameObject KitchenUI;
 
     [SerializeField] private PowerSystem Power;
-    // Start is called before the first frame update
+
+    [SerializeField] private GameObject Amigao;
+
+
     void Start()
     {
         for(int i=0; i<Cameras.Length;i++)
@@ -103,6 +106,10 @@ public class CameraSystem : MonoBehaviour
             if(CurrentCam == 2)
             {
                 KitchenUI.SetActive(true);
+                if(Amigao.GetComponent<AnimatronicSystem>().CurrentTarget == 3)
+                {
+                    Amigao.GetComponent<AudioSource>().Play();
+                }
             } else
             {
                 KitchenUI.SetActive(false);
